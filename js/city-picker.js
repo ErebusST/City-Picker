@@ -369,6 +369,9 @@
         },
 
         feedVal: function () {
+            if(typeof this.options.callback == "function"){
+                this.options.callback(this.getVal())
+            }
             this.$element.val(this.getVal());
         },
 
@@ -530,7 +533,8 @@
         level: 'district',
         province: '',
         city: '',
-        district: ''
+        district: '',
+        callback:undefined
     };
 
     CityPicker.setDefaults = function (options) {
